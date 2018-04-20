@@ -18,7 +18,9 @@
 *	You should have received a copy of the GNU General Public License					  *
 *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
 ******************************************************************************************/
+
 #pragma once
+
 #include <d3d11.h>
 #include <wrl.h>
 #include "ChiliException.h"

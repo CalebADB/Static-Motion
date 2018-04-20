@@ -121,4 +121,3 @@ Dimensions2D<int> Surface::getDimensions() const
 {
 	return dimension;
 }
-
