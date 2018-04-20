@@ -8,8 +8,6 @@
 
 #include <vector>
 
-// farts
-
 class Animation
 {
 public:
