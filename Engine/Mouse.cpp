@@ -21,7 +21,6 @@
 
 #include "Mouse.h"
 
-
 std::pair<int,int> Mouse::GetPos() const
 {
 	return { x,y };

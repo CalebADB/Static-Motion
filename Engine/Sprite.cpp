@@ -42,6 +42,19 @@ void Sprite::draw(Graphics & gfx) const
 	animations[iAnim].draw(gfx, body.rect.getTopRight());
 }
 
+bool Sprite::isCordInSprite(const Coordinates2D<int>& Cord)
+{
+	assert(false); //not defined
+	return false;
+}
+
+bool Sprite::isSpriteInSprite(const Sprite & testSprite)
+{
+	assert(false); //not defined
+	return false;
+}
+
+
 PhysicSystem2D Sprite::getBody() const
 {
 	return body;

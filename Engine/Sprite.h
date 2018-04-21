@@ -21,6 +21,8 @@ public:
 
 	void update(float dt);
 	void draw(Graphics& gfx) const;
+	bool isCordInSprite(const Coordinates2D<int> & Cord);
+	bool isSpriteInSprite(const Sprite & testSprite);
 
 	// GETTRUTION
 	PhysicSystem2D getBody() const;
@@ -29,10 +31,10 @@ public:
 	// SECTUM
 	void setAnim(int set_iAnim);
 	void setVelo(Velocity2D velo);
-
+protected:
+	PhysicSystem2D body;
 private:
 	std::vector<class Animation> animations; // Sprite Sheet
 	int iAnim = 0;
-	PhysicSystem2D body;
 };
 

@@ -16,35 +16,17 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{8b6c92a8-f65d-451e-80e3-d65773602b92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chili Framework">
+      <UniqueIdentifier>{2ac80db9-7cd7-43d4-8795-aa348f0c0324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chili Framework">
+      <UniqueIdentifier>{ed23c41d-b364-4800-90d8-c70775306c71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Chili Framework">
+      <UniqueIdentifier>{26d0268e-0937-4d20-9b7b-ef7bb5496070}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChiliWin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Colors.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DXErr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Keyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Mouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ChiliException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,26 +51,38 @@
     <ClInclude Include="Surface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChiliException.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="ChiliWin.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Colors.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="DXErr.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWindow.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files\Chili Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DXErr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -113,6 +107,27 @@
     <ClCompile Include="Surface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DXErr.cpp">
+      <Filter>Source Files\Chili Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Source Files\Chili Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Chili Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Source Files\Chili Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Source Files\Chili Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Source Files\Chili Framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
@@ -123,16 +138,16 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Resource.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="Chili.ico">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Chili Framework</Filter>
     </Image>
     <Image Include="GreenSquidRight.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files\Chili Framework</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

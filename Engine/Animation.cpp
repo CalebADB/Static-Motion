@@ -37,7 +37,6 @@ Animation::Animation(const Animation & source_animation)
 	chroma(source_animation.chroma),
 	holdTime(source_animation.holdTime)
 {
-
 }
 
 Animation & Animation::operator=(const Animation & source_animation)
