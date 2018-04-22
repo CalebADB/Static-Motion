@@ -26,6 +26,7 @@ public:
 
 	int getArea() const;
 	
+	Dimensions2D<int> getDimension() const;
 	int getWidth() const;
 	int getHeight() const;
 	

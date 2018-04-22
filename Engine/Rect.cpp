@@ -78,6 +78,11 @@ int Rect::getArea() const
 	return static_cast<int> (dimension.width) * static_cast<int> (dimension.height);
 }
 
+Dimensions2D<int> Rect::getDimension() const
+{
+	return Dimensions2D<int>(static_cast<int>(dimension.width), static_cast<int>(dimension.height));
+}
+
 int Rect::getWidth() const
 {
 	return static_cast<int> (dimension.width);

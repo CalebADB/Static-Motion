@@ -25,7 +25,8 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	widget1Sheet(widget1Colors, widget1Frames, Dimensions2D<int>(150,100))
 {
 }
 

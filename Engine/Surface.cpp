@@ -52,6 +52,8 @@ Surface::Surface(const Dimensions2D<int> dimension, const Color & bgColor)
 	:
 	dimension(dimension)
 {
+	surfacePxls = new Color[dimension.getArea()];
+
 	Coordinates2D<int> coordinate;
 
 	for (coordinate.y = 0; coordinate.y < dimension.height; coordinate.y++)
@@ -88,7 +90,7 @@ Surface::~Surface()
 	surfacePxls = nullptr;
 }
 
-void Surface::blit(const Surface & source_surface, const Coordinates2D<int>& destination)
+void Surface::blit(const Surface & source_surface, const Rect & destination)
 {
 
 }

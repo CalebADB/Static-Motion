@@ -7,7 +7,7 @@
 
 #include "Sprite.h"
 
-class Box : Sprite
+class Widget : Sprite
 {
 public:
 	enum class Status {
@@ -16,14 +16,14 @@ public:
 		count
 	};
 
-	Box(const Sprite & source_sprite);
-	~Box() = default;
+	Widget(const Sprite & source_sprite);
+	~Widget() = default;
 
 	void update(Mouse& mouse, float dt);
 	void draw(Graphics& gfx);
 protected:
 	void checkMouse(Mouse& mouse);
 private:
-	Box::Status boxStatus = Box::Status::inactive;
+	Widget::Status boxStatus = Widget::Status::inactive;
 };
 

@@ -4,6 +4,8 @@
 #include "Graphics.h"
 #include "Colors.h"
 
+#include "Rect.h"
+
 #include "PhysicContainers.h"
 #include <utility>
 
@@ -19,7 +21,7 @@ public:
 	Surface& operator=(const Surface&) = default;
 	~Surface(); // not default
 
-	void blit(const Surface& source_Surface, const Coordinates2D<int>& destination);
+	void blit(const Surface& source_Surface, const Rect & destination);
 	
 	// Setters FOR SETTING SHIT
 	void setPxl(const Coordinates2D<int>& coordinate, const Color& pxlColor);

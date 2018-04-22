@@ -27,8 +27,10 @@
 
 #include "FrameTimer.h"
 
+#include "Rect.h"
 #include "Sprite.h"
-#include "Box.h"
+#include "WidgetSurface.h"
+#include "Widget.h"
 
 class Game
 {
@@ -46,4 +48,18 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 	FrameTimer ft;
+	
+	std::vector<Color> widget1Colors = {Colors::Gray05,
+										Colors::Gray07,
+										Colors::Gray09,
+										Colors::Gray14,
+										Colors::Gray16,
+										Colors::Gray18 };
+	std::vector<Rect> widget1Frames =  {Rect(0,0,50,50),
+										Rect(50,0,50,50),
+										Rect(100,0,50,50),
+										Rect(0,50,50,50),
+										Rect(50,50,50,50),
+										Rect(100,50,50,50) };
+	WidgetSurface widget1Sheet;
 };

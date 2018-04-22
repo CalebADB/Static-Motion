@@ -27,7 +27,7 @@ public:
 
 	// GETTRUTION
 	PhysicSystem2D getBody() const;
-	std::vector<Animation> & getAnimations() const;
+	std::vector<Animation> getAnimations() const;
 
 	// SECTUM
 	void setAnim(int set_iAnim);

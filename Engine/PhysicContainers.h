@@ -38,6 +38,7 @@ public:
 	{}
 	//Dimensions2D& Dimensions2D::operator=(const Dimensions2D& source_Dimensions2D);
 	~Dimensions2D() = default;
+	containerType getArea() const;
 	containerType width;
 	containerType height;
 }; 
@@ -77,3 +78,9 @@ public:
 	float x;
 	float y;
 };
+
+template<typename containerType>
+inline containerType Dimensions2D<containerType>::getArea() const
+{
+	return width * height;
+}

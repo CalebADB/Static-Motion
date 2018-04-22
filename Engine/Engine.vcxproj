@@ -137,7 +137,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
-    <ClInclude Include="Box.h" />
+    <ClInclude Include="Widget.h" />
+    <ClInclude Include="WidgetSurface.h" />
     <ClInclude Include="ChiliException.h" />
     <ClInclude Include="ChiliWin.h" />
     <ClInclude Include="Colors.h" />
@@ -157,7 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
-    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Widget.cpp" />
+    <ClCompile Include="WidgetSurface.cpp" />
     <ClCompile Include="DXErr.cpp" />
     <ClCompile Include="FrameTimer.cpp" />
     <ClCompile Include="Game.cpp" />
