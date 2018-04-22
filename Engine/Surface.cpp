@@ -107,6 +107,27 @@ void Surface::blit(const Surface & source_surface, const Rect & destination)
 	}
 }
 
+void Surface::blit(const Surface & source_Surface, const Rect & destination, Color Chroma)
+{
+	Coordinates2D<int> setPxlI = destination.getTopLeft();
+	Dimensions2D<int> setDimensions = destination.getDimension();
+
+	Coordinates2D<int> getPxlI;
+	for (getPxlI.y = 0; getPxlI.y < setDimensions.height; getPxlI.y++)
+	{
+		setPxlI.y++;
+		for (getPxlI.x = 0; getPxlI.x < setDimensions.width; getPxlI.x++)
+		{
+			setPxlI.x++;
+			Color BlitPxl = source_surface.getPxl(getPxlI);
+			if (BlitPxl == Chroma)
+			{
+				setPxl(setPxlI, BlitPxl);
+			}
+		}
+	}
+}
+
 void Surface::setPxl(const Coordinates2D<int>& coordinate, const Color & pxlColor)
 {
 	if (0 <= coordinate.x && coordinate.x <= dimension.width)

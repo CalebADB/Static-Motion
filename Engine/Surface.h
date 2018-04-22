@@ -22,7 +22,8 @@ public:
 	~Surface(); // not default
 
 	void blit(const Surface& source_Surface, const Rect & destination);
-	
+	void blit(const Surface& source_Surface, const Rect & destination, Color Chroma = Colors::Magenta);
+
 	// Setters FOR SETTING SHIT
 	void setPxl(const Coordinates2D<int>& coordinate, const Color& pxlColor);
 
