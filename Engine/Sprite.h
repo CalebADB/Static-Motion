@@ -4,6 +4,7 @@
 #include "Surface.h"
 #include "Physics.h"
 
+#include "Animation.h"
 #include <vector>
 #include <utility>
 #include <cassert>
@@ -26,7 +27,7 @@ public:
 
 	// GETTRUTION
 	PhysicSystem2D getBody() const;
-	std::vector<class Animation> getAnimations() const;
+	std::vector<Animation> & getAnimations() const;
 
 	// SECTUM
 	void setAnim(int set_iAnim);

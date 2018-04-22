@@ -54,13 +54,12 @@ bool Sprite::isSpriteInSprite(const Sprite & testSprite)
 	return false;
 }
 
-
 PhysicSystem2D Sprite::getBody() const
 {
 	return body;
 }
 
-std::vector<class Animation> Sprite::getAnimations() const
+std::vector<Animation> & Sprite::getAnimations() const
 {
 	return animations;
 }

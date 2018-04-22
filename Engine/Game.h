@@ -27,6 +27,9 @@
 
 #include "FrameTimer.h"
 
+#include "Sprite.h"
+#include "Box.h"
+
 class Game
 {
 public:
@@ -43,6 +46,4 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 	FrameTimer ft;
-
-
 };
