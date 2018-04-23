@@ -21,9 +21,10 @@ public:
 	Surface& operator=(const Surface&) = default;
 	~Surface(); // not default
 
-	void blit(const Surface& source_Surface, const Rect & destination);
-	void blit(const Surface& source_Surface, const Rect & destination, Color Chroma = Colors::Magenta);
+	void blit(const Surface& source_surface, const Rect & destination);
+	void blit(const Surface& source_surface, const Rect & destination, Color Chroma = Colors::Magenta);
 
+	void draw(Graphics & gfx) const; 
 	// Setters FOR SETTING SHIT
 	void setPxl(const Coordinates2D<int>& coordinate, const Color& pxlColor);
 

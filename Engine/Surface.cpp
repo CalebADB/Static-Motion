@@ -107,7 +107,7 @@ void Surface::blit(const Surface & source_surface, const Rect & destination)
 	}
 }
 
-void Surface::blit(const Surface & source_Surface, const Rect & destination, Color Chroma)
+void Surface::blit(const Surface & source_surface, const Rect & destination, Color Chroma)
 {
 	Coordinates2D<int> setPxlI = destination.getTopLeft();
 	Dimensions2D<int> setDimensions = destination.getDimension();
@@ -124,6 +124,18 @@ void Surface::blit(const Surface & source_Surface, const Rect & destination, Col
 			{
 				setPxl(setPxlI, BlitPxl);
 			}
+		}
+	}
+}
+
+void Surface::draw(Graphics & gfx) const
+{
+	Coordinates2D<int> cordI;
+	for (cordI.y = 0;  cordI.y < dimension.height;  cordI.y++)
+	{
+		for (cordI.x = 0; cordI.x < dimension.width; cordI.x++)
+		{
+			gfx.PutPixel(cordI.x, cordI.y, getPxl(cordI));
 		}
 	}
 }
@@ -148,7 +160,6 @@ Color Surface::getPxl(const Coordinates2D<int>& coordinate) const
 			return surfacePxls[coordinate.x + (coordinate.y * dimension.width)];
 		}
 	}
-	assert(false);// i pooped ma pants
 	return Colors::Magenta;
 }
 

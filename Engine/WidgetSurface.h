@@ -8,7 +8,7 @@
 #include <vector>
 #include <cassert>
 
-class WidgetSurface : Surface
+class WidgetSurface : public Surface
 {
 public:
 	WidgetSurface() = delete;

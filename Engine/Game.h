@@ -48,18 +48,30 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 	FrameTimer ft;
-	
+	float dt;
+
 	std::vector<Color> widget1Colors = {Colors::Gray05,
 										Colors::Gray07,
 										Colors::Gray09,
 										Colors::Gray14,
 										Colors::Gray16,
-										Colors::Gray18 };
+										Colors::Gray18};
 	std::vector<Rect> widget1Frames =  {Rect(0,0,50,50),
 										Rect(50,0,50,50),
 										Rect(100,0,50,50),
 										Rect(0,50,50,50),
 										Rect(50,50,50,50),
-										Rect(100,50,50,50) };
+										Rect(100,50,50,50)};
+										
 	WidgetSurface widget1Sheet;
+	std::vector<Rect> widget1InactiveFrames = {Rect(0,0,50,50),
+											   Rect(50,0,50,50),
+											   Rect(100,0,50,50)};
+	std::vector<Rect> widget1ActiveFrames   = {Rect(0,50,50,50),
+	                                           Rect(50,50,50,50),
+	                                           Rect(100,50,50,50)};
+	std::vector<Animation> widget1Animations = {Animation(widget1Sheet, 3, widget1InactiveFrames),
+												Animation(widget1Sheet, 3, widget1ActiveFrames)};
+				   
+	Widget widget1;
 };

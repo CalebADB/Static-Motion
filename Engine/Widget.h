@@ -7,7 +7,7 @@
 
 #include "Sprite.h"
 
-class Widget : Sprite
+class Widget : public Sprite
 {
 public:
 	enum class Status {
@@ -20,7 +20,6 @@ public:
 	~Widget() = default;
 
 	void update(Mouse& mouse, float dt);
-	void draw(Graphics& gfx);
 protected:
 	void checkMouse(Mouse& mouse);
 private:

@@ -9,12 +9,7 @@ Widget::Widget(const Sprite & source_sprite)
 
 void Widget::update(Mouse & mouse, float dt)
 {
-	assert(false);//not defined
-}
-
-void Widget::draw(Graphics & gfx)
-{
-	assert(false);//not defined
+	Sprite::update(dt);
 }
 
 void Widget::checkMouse(Mouse & mouse)

@@ -13,9 +13,9 @@ class Animation
 {
 public:
 	Animation(Surface& spriteSheet, int frameNum, Dimensions2D<int> baseDimensions, std::vector<Coordinates2D<int>> frameCords,
-			  float holdTime = 1.0f, Color chroma = Colors::Magenta);
+			  float holdTime = 5.0f, Color chroma = Colors::Magenta);
 	Animation(Surface& spriteSheet, int frameNum, std::vector<Rect> frameRects, 
-			  float holdTime = 1.0f, Color chroma = Colors::Magenta);
+			  float holdTime = 5.0f, Color chroma = Colors::Magenta);
 	Animation(const Animation& source_animation);
 	Animation& Animation::operator=(const Animation& source_animation);
 	~Animation() = default;
