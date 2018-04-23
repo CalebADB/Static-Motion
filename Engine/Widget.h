@@ -23,6 +23,6 @@ public:
 protected:
 	void checkMouse(Mouse& mouse);
 private:
-	Widget::Status boxStatus = Widget::Status::inactive;
+	Widget::Status widgetStatus = Widget::Status::inactive;
 };
 

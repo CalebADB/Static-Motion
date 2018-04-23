@@ -21,6 +21,8 @@
 
 #pragma once
 
+#include "PhysicContainers.h"
+
 #include <queue>
 
 class Mouse
@@ -97,7 +99,8 @@ public:
 	Mouse() = default;
 	Mouse( const Mouse& ) = delete;
 	Mouse& operator=( const Mouse& ) = delete;
-	std::pair<int,int> GetPos() const;
+	Coordinates2D<int> GetPos() const;
+	void update();
 	int GetPosX() const;
 	int GetPosY() const;
 	bool LeftIsPressed() const;
@@ -124,6 +127,7 @@ private:
 	static constexpr unsigned int bufferSize = 4u;
 	int x;
 	int y;
+	Coordinates2D<int> pos;
 	bool leftIsPressed = false;
 	bool rightIsPressed = false;
 	bool isInWindow = false;

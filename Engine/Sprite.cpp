@@ -39,13 +39,22 @@ void Sprite::update(float dt)
 
 void Sprite::draw(Graphics & gfx) const
 {
-	animations[iAnim].draw(gfx, body.rect.getTopRight());
+	animations[iAnim].draw(gfx, body.rect.getTopLeft());
 }
 
 bool Sprite::isCordInSprite(const Coordinates2D<int>& Cord)
 {
-	assert(false); //not defined
-	return false;
+	if ((Cord.y < body.rect.getBottom()) && 
+		(Cord.y > body.rect.getTop()))
+	{
+		if ((Cord.x < body.rect.getRight()) &&
+			(Cord.x > body.rect.getLeft()))
+		{
+			return true;
+		}
+		else { return false; }
+	}
+	else { return false; }
 }
 
 bool Sprite::isSpriteInSprite(const Sprite & testSprite)

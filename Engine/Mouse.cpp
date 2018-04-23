@@ -21,9 +21,15 @@
 
 #include "Mouse.h"
 
-std::pair<int,int> Mouse::GetPos() const
+Coordinates2D<int> Mouse::GetPos() const
 {
-	return { x,y };
+	return pos;
+}
+
+void Mouse::update()
+{
+	pos.x = x;
+	pos.y = y;
 }
 
 int Mouse::GetPosX() const

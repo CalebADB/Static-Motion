@@ -9,7 +9,6 @@
 #include <utility>
 #include <cassert>
 
-
 class Sprite
 {
 public:
