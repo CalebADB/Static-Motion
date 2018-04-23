@@ -120,7 +120,7 @@ void Surface::blit(const Surface & source_surface, const Rect & destination, Col
 		{
 			setPxlI.x++;
 			Color BlitPxl = source_surface.getPxl(getPxlI);
-			if (BlitPxl == Chroma)
+			if (BlitPxl != Chroma)
 			{
 				setPxl(setPxlI, BlitPxl);
 			}

@@ -59,32 +59,37 @@ void Animation::update(float dt)
 	}
 }
 
-void Animation::draw(Graphics & gfx, const Coordinates2D<int> spritePos) const
+void Animation::draw(Graphics & gfx, const Coordinates2D<int> & spritePos, Color Chroma) const
 {
 	assert(iCurFrame < frameNum);
-	
+
+	Coordinates2D<int> setPxlI = spritePos;
+
 	const Rect & frameRect = frameRects[iCurFrame];
-	Coordinates2D<int> sheetPxlCord(0,0);
-	Dimensions2D<int> pxlOffSet(0,0); 
-	
-	sheetPxlCord.y = frameRect.getTop();
-	for (pxlOffSet.height = 0; pxlOffSet.height < frameRect.getHeight(); pxlOffSet.height++)
+	Coordinates2D<int> frameCord = frameRect.getTopLeft();
+	Dimensions2D<int> frameDimensions = frameRect.getDimension();
+
+	Coordinates2D<int> getPxlI;
+	for (int y = 0; y < frameDimensions.height; y++)
 	{
-		sheetPxlCord.x = frameRect.getLeft();
-		for (pxlOffSet.width = 0; pxlOffSet.width < frameRect.getWidth(); pxlOffSet.width++)
+		frameCord.y++;
+		setPxlI.y++;
+		for (int x = 0; x < frameDimensions.width; x++)
 		{
-			const Color  pxl = spriteSheet.getPxl(sheetPxlCord);
-			if (pxl != chroma)
+			frameCord.x++;
+			setPxlI.x++;
+			Color BlitPxl = spriteSheet.getPxl(frameCord);
+			if (BlitPxl != Chroma)
 			{
-				gfx.PutPixel(spritePos.x + pxlOffSet.width, spritePos.y + pxlOffSet.height, pxl);
+				gfx.PutPixel(setPxlI.x, setPxlI.y, BlitPxl);
 			}
-			sheetPxlCord.x++;
 		}
-		sheetPxlCord.y++;
+		frameCord.x = frameRect.getTopLeft().x;
+		setPxlI.x = spritePos.x;
 	}
 }
 
-void Animation::draw(Graphics & gfx, const Coordinates2D<int> spritePos, const Rect & clipRect) const
+void Animation::draw(Graphics & gfx, const Coordinates2D<int> & spritePos, const Rect & clipRect, Color Chroma) const
 {
 	assert(false); //not defined
 }

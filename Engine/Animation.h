@@ -21,8 +21,8 @@ public:
 	~Animation() = default;
 	
 	void update(float dt);
-	void draw(Graphics& gfx, const Coordinates2D<int> spritePos) const;
-	void draw(Graphics& gfx, const Coordinates2D<int> spritePos, const Rect& clipRect) const;
+	void draw(Graphics& gfx, const Coordinates2D<int> & spritePos, Color Chroma = Colors::Magenta) const;
+	void draw(Graphics& gfx, const Coordinates2D<int> & spritePos, const Rect& clipRect, Color Chroma = Colors::Magenta) const;
 private:
 	void advanceFrame();
 
