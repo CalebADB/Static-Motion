@@ -25,9 +25,7 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd ),
-	widget1Sheet(widget1Colors, widget1Frames, Dimensions2D<int>(150,100)),
-	widget1(Sprite(widget1Animations, Rect(50,50,50,50)))
+	gfx( wnd )
 {
 }
 
@@ -43,11 +41,8 @@ void Game::UpdateModel()
 {
 	wnd.mouse.update();
 	float dt = ft.Mark();
-	widget1.update(wnd.mouse, dt);
 }
 
 void Game::ComposeFrame()
 {
-	widget1.draw(gfx);
-//	widget1Sheet.draw(gfx);
 }
