@@ -24,13 +24,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
-
 #include "FrameTimer.h"
-
-#include "Rect.h"
-#include "Sprite.h"
-#include "WidgetSurface.h"
-#include "Widget.h"
 
 class Game
 {
