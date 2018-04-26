@@ -137,6 +137,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Widget.h" />
     <ClInclude Include="WidgetSurface.h" />
     <ClInclude Include="ChiliException.h" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Widget.cpp" />
     <ClCompile Include="WidgetSurface.cpp" />
     <ClCompile Include="DXErr.cpp" />

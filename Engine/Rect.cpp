@@ -105,12 +105,12 @@ int Rect::getLeft() const
 
 int Rect::getBottom() const
 {
-	return static_cast<int> (position.x + dimension.width);
+	return static_cast<int> (position.x + dimension.height);
 }
 
 int Rect::getRight() const
 {
-	return static_cast<int> (position.y + dimension.height);
+	return static_cast<int> (position.y + dimension.width);
 }
 
 Coordinates2D<int> Rect::getTopLeft() const
@@ -122,19 +122,19 @@ Coordinates2D<int> Rect::getTopLeft() const
 Coordinates2D<int> Rect::getBottomLeft() const
 {
 	return Coordinates2D<int> (static_cast<int>(position.x), // x
-								static_cast<int>(position.y) + static_cast<int>(dimension.height)); // y
+								static_cast<int>(position.y + dimension.height)); // y
 }
 
 Coordinates2D<int> Rect::getTopRight() const
 {
-	return Coordinates2D<int> (static_cast<int>(position.x) + static_cast<int>(dimension.width),   // x
+	return Coordinates2D<int> (static_cast<int>(position.x + dimension.width),   // x
 								static_cast<int>(position.y)); // y
 }
 
 Coordinates2D<int> Rect::getBottomRight() const
 {
-	return Coordinates2D<int> (static_cast<int>(position.x) + (static_cast<int>(dimension.width)), // x
-								static_cast<int>(position.y) + (static_cast<int>(dimension.height))); // y
+	return Coordinates2D<int> (static_cast<int>(position.x + dimension.width), // x
+								static_cast<int>(position.y + dimension.height)); // y
 }
 
 Coordinates2D<int> Rect::getMidTop() const

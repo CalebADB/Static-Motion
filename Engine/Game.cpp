@@ -25,7 +25,10 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	b1Dimension(60,40),
+	b1Surface(b1Colors,b1Frames,Dimensions2D<int>(60,120)),
+	b1(Sprite(b1Animations,Rect(Coordinates2D<int>(0,0), b1Dimension)))
 {
 }
 
@@ -41,9 +44,10 @@ void Game::UpdateModel()
 {
 	wnd.mouse.update();
 	float dt = ft.Mark();
+	b1.update(wnd.mouse, wnd.kbd, dt);
 }
 
 void Game::ComposeFrame()
 {
-
+	b1.draw(gfx);
 }

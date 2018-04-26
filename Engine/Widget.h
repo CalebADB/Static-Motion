@@ -1,16 +1,16 @@
 
 #pragma once
 
+#include "Sprite.h"
+
 #include "Mouse.h"
 
 #include "Rect.h"
 
-#include "Sprite.h"
-
 class Widget : public Sprite
 {
 public:
-	enum class Status {
+	enum class WidgetStatus {
 		inactive,
 		active,
 		count
@@ -19,10 +19,9 @@ public:
 	Widget(const Sprite & source_sprite);
 	~Widget() = default;
 
-	void update(Mouse& mouse, float dt);
+	void update(const Mouse& mouse, float dt);
+
 protected:
-	void checkMouse(Mouse& mouse);
-private:
-	Widget::Status widgetStatus = Widget::Status::inactive;
+	Widget::WidgetStatus widgetStatus = Widget::WidgetStatus::inactive;
 };
 
