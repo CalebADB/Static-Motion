@@ -72,18 +72,19 @@ void Animation::draw(Graphics & gfx, const Coordinates2D<int> & spritePos, Color
 	Coordinates2D<int> getPxlI;
 	for (int y = 0; y < frameDimensions.height; y++)
 	{
-		frameCord.y++;
-		setPxlI.y++;
 		for (int x = 0; x < frameDimensions.width; x++)
 		{
-			frameCord.x++;
-			setPxlI.x++;
 			Color BlitPxl = spriteSheet.getPxl(frameCord);
 			if (BlitPxl != Chroma)
 			{
 				gfx.PutPixel(setPxlI.x, setPxlI.y, BlitPxl);
 			}
+			gfx.PutPixel(setPxlI.x, setPxlI.y, BlitPxl);
+			frameCord.x++;
+			setPxlI.x++;
 		}
+		frameCord.y++;
+		setPxlI.y++;
 		frameCord.x = frameRect.getTopLeft().x;
 		setPxlI.x = spritePos.x;
 	}

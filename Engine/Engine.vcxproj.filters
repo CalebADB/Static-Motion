@@ -99,6 +99,9 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -152,6 +155,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
@@ -166,6 +172,12 @@
       <Filter>Resource Files\Chili Framework</Filter>
     </Image>
     <Image Include="GreenSquidRight.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\FixedWidth16x28.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Consolas13x24.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

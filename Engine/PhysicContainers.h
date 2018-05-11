@@ -25,7 +25,11 @@ template<typename containerType>
 class Dimensions2D
 {
 public:
-	Dimensions2D() = default;
+	Dimensions2D()
+		:
+		width(1),
+		height(1)
+	{}
 	Dimensions2D(containerType width, containerType height)
 		:
 		width(width),

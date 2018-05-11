@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include <fstream>
+#include <string>
 
 Surface::Surface(const std::string & filename)
 {
@@ -25,7 +26,7 @@ Surface::Surface(const std::string & filename)
 	dimension.width = imageInfoHeader.biWidth;
 	dimension.height = imageInfoHeader.biHeight;
 
-	int surfacePxlsSize = dimension.width * dimension.height;
+	surfacePxlsSize = dimension.width * dimension.height;
 
 	surfacePxls = new Color[surfacePxlsSize];
 
@@ -34,18 +35,15 @@ Surface::Surface(const std::string & filename)
 	file.seekg(imageFileHeader.bfOffBits);
 
 	Coordinates2D<int> coordinate(0,0);
-	int red = 0;
 	for (coordinate.y = dimension.height - 1; coordinate.y >= 0; coordinate.y--)
 	{
-		red += 1; 
 		for (coordinate.x = 0; coordinate.x < dimension.width; coordinate.x++)
 		{
-			red += 1;
-			setPxl(coordinate, Color(file.get(), file.get(), file.get()));
+			setPxl(coordinate, Color(file.get(),file.get(),file.get()));
+			getPxl(coordinate);
 		}
 		file.seekg(padding, std::ios::cur);
 	}
-
 }
 
 Surface::Surface(const Dimensions2D<int> dimension, const Color & bgColor)
@@ -90,45 +88,45 @@ Surface::~Surface()
 	surfacePxls = nullptr;
 }
 
-void Surface::blit(const Surface & source_surface, const Rect & destination)
+void Surface::blitNoChroma(const Surface & source_surface, const Coordinates2D<int> & source_location, const Rect & destination)
 {
 	Coordinates2D<int> setPxlI = destination.getTopLeft();
 	Dimensions2D<int> setDimensions = destination.getDimension();
-	
+
 	Coordinates2D<int> getPxlI;
-	for (getPxlI.y = 0; getPxlI.y < setDimensions.height; getPxlI.y++)
+	for (getPxlI.y = source_location.y; getPxlI.y < setDimensions.height; getPxlI.y++)
 	{
-		setPxlI.y++;
-		for (getPxlI.x = 0; getPxlI.x < setDimensions.width; getPxlI.x++)
+		for (getPxlI.x = source_location.x; getPxlI.x < setDimensions.width; getPxlI.x++)
 		{
-			setPxlI.x++;
 			setPxl(setPxlI, source_surface.getPxl(getPxlI));
+			setPxlI.x++;
 		}
+		setPxlI.y++;
 	}
 }
 
-void Surface::blit(const Surface & source_surface, const Rect & destination, Color Chroma)
+void Surface::blit(const Surface & source_surface, const Coordinates2D<int> & source_location, const Rect & destination, Color Chroma)
 {
 	Coordinates2D<int> setPxlI = destination.getTopLeft();
 	Dimensions2D<int> setDimensions = destination.getDimension();
 
 	Coordinates2D<int> getPxlI;
-	for (getPxlI.y = 0; getPxlI.y < setDimensions.height; getPxlI.y++)
+	for (getPxlI.y = source_location.y; getPxlI.y < setDimensions.height; getPxlI.y++)
 	{
-		setPxlI.y++;
-		for (getPxlI.x = 0; getPxlI.x < setDimensions.width; getPxlI.x++)
+		for (getPxlI.x = source_location.x; getPxlI.x < setDimensions.width; getPxlI.x++)
 		{
-			setPxlI.x++;
 			Color BlitPxl = source_surface.getPxl(getPxlI);
 			if (BlitPxl != Chroma)
 			{
 				setPxl(setPxlI, BlitPxl);
 			}
+			setPxlI.x++;
 		}
+		setPxlI.y++;
 	}
 }
 
-void Surface::draw(Graphics & gfx) const
+void Surface::draw(Graphics & gfx)
 {
 	Coordinates2D<int> cordI;
 	for (cordI.y = 0;  cordI.y < dimension.height;  cordI.y++)
@@ -153,11 +151,20 @@ void Surface::setPxl(const Coordinates2D<int>& coordinate, const Color & pxlColo
 
 Color Surface::getPxl(const Coordinates2D<int>& coordinate) const
 {
+	int four = 4;
 	if (0 <= coordinate.x && coordinate.x <= dimension.width)
 	{
 		if (0 <= coordinate.y && coordinate.y <= dimension.height)
 		{
-			return surfacePxls[coordinate.x + (coordinate.y * dimension.width)];
+			int pxlI = (coordinate.y * dimension.width) + coordinate.x;
+			if (!(surfacePxls[pxlI] == Colors::Black &&
+				surfacePxls[pxlI] == Colors::Magenta))
+			{
+				int x = coordinate.y;
+				int y = coordinate.y;
+			}
+			//return Colors::Magenta;
+			return surfacePxls[pxlI];
 		}
 	}
 	return Colors::Magenta;

@@ -20,13 +20,13 @@ WidgetSurface::WidgetSurface(std::vector<Color> widgetColors, std::vector<Rect> 
 		framePxlI.y = frameCord.y;
 		for (int y = 0; y < frameDimensions.height; y++)
 		{
-			framePxlI.y++;
 			framePxlI.x = frameCord.x;
 			for (int x = 0; x < frameDimensions.width; x++)
 			{
-				framePxlI.x++;
 				setPxl(framePxlI, frameColor);
+				framePxlI.x++;
 			}
+			framePxlI.y++;
 		}
 	}
 }

@@ -32,6 +32,7 @@
 #include "Rect.h"
 #include "WidgetSurface.h"
 #include "Animation.h"
+#include "Font.h"
 #include "Sprite.h"
 #include "Button.h"
 
@@ -54,8 +55,8 @@ private:
 	FrameTimer ft;
 	float dt;
 
-// \/ \/ \/ \/ Branch Code Below \/ \/ \/ \/
-	Dimensions2D<int> b1Dimension;
+// \/ \/ \/ \/ Branch Code Below \/ \/ \/ \/  
+/*	Dimensions2D<int> b1Dimension;
 	std::vector<Color> b1Colors = {Colors::Gray10,
 		                           Colors::Gray15, 
 					               Colors::Gray20};
@@ -70,5 +71,8 @@ private:
 	std::vector<Animation> b1Animations = { Animation(b1Surface,1,inactiveFrames),
 		Animation(b1Surface,1,unpressedFrames),
 		Animation(b1Surface,1,pressedFrames) };
-	Button b1;
+	Button b1;*/
+
+	Font Consolas;
+
 };
