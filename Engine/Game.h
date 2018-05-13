@@ -56,23 +56,8 @@ private:
 	float dt;
 
 // \/ \/ \/ \/ Branch Code Below \/ \/ \/ \/  
-/*	Dimensions2D<int> b1Dimension;
-	std::vector<Color> b1Colors = {Colors::Gray10,
-		                           Colors::Gray15, 
-					               Colors::Gray20};
-	std::vector<Rect> inactiveFrames = {Rect(Coordinates2D<int>(0,0),b1Dimension)};
-	std::vector<Rect> unpressedFrames = {Rect(Coordinates2D<int>(0,b1Dimension.height),b1Dimension)};
-	std::vector<Rect> pressedFrames = {Rect(Coordinates2D<int>(0,b1Dimension.height*2),b1Dimension)};
-
-	std::vector<Rect> b1Frames  = {inactiveFrames[0],
-						           unpressedFrames[0],
-						           pressedFrames[0]};
-	WidgetSurface b1Surface;
-	std::vector<Animation> b1Animations = { Animation(b1Surface,1,inactiveFrames),
-		Animation(b1Surface,1,unpressedFrames),
-		Animation(b1Surface,1,pressedFrames) };
-	Button b1;*/
 
 	Font Consolas;
+	Surface textSurf;
 
 };

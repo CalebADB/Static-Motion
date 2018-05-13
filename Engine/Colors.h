@@ -30,6 +30,7 @@ public:
 	constexpr Color( const Color& col )
 		:
 		dword( col.dword )
+
 	{}
 	constexpr Color( unsigned int dw )
 		:

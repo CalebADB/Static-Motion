@@ -95,12 +95,12 @@ int Rect::getHeight() const
 
 int Rect::getTop() const
 {
-	return static_cast<int> (position.x);
+	return static_cast<int> (position.y);
 }
 
 int Rect::getLeft() const
 {
-	return static_cast<int> (position.y);
+	return static_cast<int> (position.x);
 }
 
 int Rect::getBottom() const

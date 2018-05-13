@@ -5,7 +5,7 @@ template<typename containerType>
 class Coordinates2D
 {
 public:
-	Coordinates2D() = default;
+	Coordinates2D() = default; 
 	Coordinates2D(containerType x, containerType y)
 		:
 		x(x),

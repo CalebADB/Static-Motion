@@ -63,22 +63,27 @@ Surface::Surface(const Dimensions2D<int> dimension, const Color & bgColor)
 	}
 }
 
-Surface::Surface(Surface && source_surface)
+Surface::Surface(const Surface & source_surface)
 	:
-	dimension(source_surface.dimension),
-	surfacePxlsSize(source_surface.surfacePxlsSize)
+	Surface(source_surface.dimension)
 {
-	for (int idx = 0; idx < surfacePxlsSize; idx++)
+	for (int idx = 0; idx < dimension.getArea(); idx++)
 	{
 		surfacePxls[idx] = source_surface.surfacePxls[idx];
 	}
 }
 
-Surface & Surface::operator=(Surface && source_surface)
+Surface & Surface::operator=(const Surface & source_surface)
 {
 	dimension = source_surface.dimension;
-	surfacePxlsSize = source_surface.surfacePxlsSize;
-	surfacePxls = std::move(source_surface.surfacePxls);
+
+	delete[] surfacePxls;
+	surfacePxls = new Color[dimension.getArea()];
+
+	for( int idx = 0; idx < dimension.getArea(); idx++ )
+	{
+		surfacePxls[idx] = source_surface.surfacePxls[idx];
+	}
 	return *this;
 }
 
@@ -90,13 +95,15 @@ Surface::~Surface()
 
 void Surface::blitNoChroma(const Surface & source_surface, const Coordinates2D<int> & source_location, const Rect & destination)
 {
-	Coordinates2D<int> setPxlI = destination.getTopLeft();
 	Dimensions2D<int> setDimensions = destination.getDimension();
 
 	Coordinates2D<int> getPxlI;
-	for (getPxlI.y = source_location.y; getPxlI.y < setDimensions.height; getPxlI.y++)
+	Coordinates2D<int> setPxlI;
+	setPxlI.y = destination.getTop();
+	for (getPxlI.y = source_location.y; getPxlI.y < setDimensions.height + source_location.y; getPxlI.y++)
 	{
-		for (getPxlI.x = source_location.x; getPxlI.x < setDimensions.width; getPxlI.x++)
+		setPxlI.x = destination.getLeft();
+		for (getPxlI.x = source_location.x; getPxlI.x < setDimensions.width + source_location.x; getPxlI.x++)
 		{
 			setPxl(setPxlI, source_surface.getPxl(getPxlI));
 			setPxlI.x++;
@@ -107,13 +114,15 @@ void Surface::blitNoChroma(const Surface & source_surface, const Coordinates2D<i
 
 void Surface::blit(const Surface & source_surface, const Coordinates2D<int> & source_location, const Rect & destination, Color Chroma)
 {
-	Coordinates2D<int> setPxlI = destination.getTopLeft();
 	Dimensions2D<int> setDimensions = destination.getDimension();
 
 	Coordinates2D<int> getPxlI;
-	for (getPxlI.y = source_location.y; getPxlI.y < setDimensions.height; getPxlI.y++)
+	Coordinates2D<int> setPxlI;
+	setPxlI.y = destination.getTop();
+	for (getPxlI.y = source_location.y; getPxlI.y < setDimensions.height + source_location.y; getPxlI.y++)
 	{
-		for (getPxlI.x = source_location.x; getPxlI.x < setDimensions.width; getPxlI.x++)
+		setPxlI.x = destination.getLeft();
+		for (getPxlI.x = source_location.x; getPxlI.x < setDimensions.width + source_location.x; getPxlI.x++)
 		{
 			Color BlitPxl = source_surface.getPxl(getPxlI);
 			if (BlitPxl != Chroma)
@@ -138,6 +147,30 @@ void Surface::draw(Graphics & gfx)
 	}
 }
 
+void Surface::saveToTxt()
+{
+	std::ofstream saveFileHndl(std::string("surfaceTxtFile.txt"));
+
+	Coordinates2D<int> getPxlI(0,0);
+	for (getPxlI.y = 0; getPxlI.y < dimension.height; getPxlI.y++)
+	{
+		for (getPxlI.x = 0; getPxlI.x < dimension.width; getPxlI.x++)
+		{
+
+			Color pxl = getPxl(getPxlI);
+			if (pxl == Colors::Magenta)
+			{
+				saveFileHndl.put('0');
+			}
+			else if (pxl == Colors::Magenta)
+			{
+				saveFileHndl.put('1');
+			}
+		}
+		saveFileHndl.put('\n');
+	}
+}
+
 void Surface::setPxl(const Coordinates2D<int>& coordinate, const Color & pxlColor)
 {
 	if (0 <= coordinate.x && coordinate.x <= dimension.width)
@@ -151,19 +184,11 @@ void Surface::setPxl(const Coordinates2D<int>& coordinate, const Color & pxlColo
 
 Color Surface::getPxl(const Coordinates2D<int>& coordinate) const
 {
-	int four = 4;
 	if (0 <= coordinate.x && coordinate.x <= dimension.width)
 	{
 		if (0 <= coordinate.y && coordinate.y <= dimension.height)
 		{
 			int pxlI = (coordinate.y * dimension.width) + coordinate.x;
-			if (!(surfacePxls[pxlI] == Colors::Black &&
-				surfacePxls[pxlI] == Colors::Magenta))
-			{
-				int x = coordinate.y;
-				int y = coordinate.y;
-			}
-			//return Colors::Magenta;
 			return surfacePxls[pxlI];
 		}
 	}

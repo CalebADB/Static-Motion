@@ -28,7 +28,8 @@ private:
 	Coordinates2D<int> mapSheetCharCord( char c ) const;
 
 public:
-	void createTextSurf(std::string text, Rect textRect, Color chroma = Colors::Magenta);
+	Surface createTextSurf(const std::string & text, const Dimensions2D<int> & textSurfSize, Color chroma = Colors::Magenta);
+	void draw(Graphics &gfx, char c);
 
 private:
 	std::vector<Surface> charSurfs;
