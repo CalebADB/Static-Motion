@@ -109,7 +109,7 @@ Surface Font::createTextSurf(const string & text, const Dimensions2D<int> & text
 		charDestination.x = 0;
 		for (int charI = 0; charI < line.size(); charI++)
 		{
-			textSurf.blit(charSurfs[line[charI] - firstChar],Coordinates2D<int>(0,0),Rect(charDestination, size));
+			textSurf.blitSilhouette(charSurfs[line[charI] - firstChar],Coordinates2D<int>(0,0),Rect(charDestination, size), Colors::Green);
 			charDestination.x += size.width;
 		}
 		charDestination.y += size.height;

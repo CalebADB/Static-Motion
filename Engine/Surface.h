@@ -19,8 +19,9 @@ public:
 	Surface& operator=(const Surface & source_surface);
 	~Surface(); // not default
 
-	void blitNoChroma(const Surface& source_surface, const Coordinates2D<int> & source_location, const Rect & destination);
 	void blit(const Surface& source_surface, const Coordinates2D<int> & source_location, const Rect & destination, Color Chroma = Colors::Magenta);
+	void blitNoChroma(const Surface& source_surface, const Coordinates2D<int> & source_location, const Rect & destination);
+	void blitSilhouette(const Surface& source_surface, const Coordinates2D<int> & source_location, const Rect & destination, Color Fg = Colors::Black, Color Chroma = Colors::Magenta);
 
 	void draw(Graphics & gfx); 
 

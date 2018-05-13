@@ -93,6 +93,29 @@ Surface::~Surface()
 	surfacePxls = nullptr;
 }
 
+void Surface::blit(const Surface & source_surface, const Coordinates2D<int> & source_location, const Rect & destination, Color Chroma)
+{
+	Dimensions2D<int> setDimensions = destination.getDimension();
+
+	Coordinates2D<int> getPxlI;
+	Coordinates2D<int> setPxlI;
+	setPxlI.y = destination.getTop();
+	for (getPxlI.y = source_location.y; getPxlI.y < setDimensions.height + source_location.y; getPxlI.y++)
+	{
+		setPxlI.x = destination.getLeft();
+		for (getPxlI.x = source_location.x; getPxlI.x < setDimensions.width + source_location.x; getPxlI.x++)
+		{
+			Color BlitPxl = source_surface.getPxl(getPxlI);
+			if (BlitPxl != Chroma)
+			{
+				setPxl(setPxlI, BlitPxl);
+			}
+			setPxlI.x++;
+		}
+		setPxlI.y++;
+	}
+}
+
 void Surface::blitNoChroma(const Surface & source_surface, const Coordinates2D<int> & source_location, const Rect & destination)
 {
 	Dimensions2D<int> setDimensions = destination.getDimension();
@@ -112,7 +135,7 @@ void Surface::blitNoChroma(const Surface & source_surface, const Coordinates2D<i
 	}
 }
 
-void Surface::blit(const Surface & source_surface, const Coordinates2D<int> & source_location, const Rect & destination, Color Chroma)
+void Surface::blitSilhouette(const Surface & source_surface, const Coordinates2D<int>& source_location, const Rect & destination, Color Fg, Color Chroma)
 {
 	Dimensions2D<int> setDimensions = destination.getDimension();
 
@@ -124,10 +147,9 @@ void Surface::blit(const Surface & source_surface, const Coordinates2D<int> & so
 		setPxlI.x = destination.getLeft();
 		for (getPxlI.x = source_location.x; getPxlI.x < setDimensions.width + source_location.x; getPxlI.x++)
 		{
-			Color BlitPxl = source_surface.getPxl(getPxlI);
-			if (BlitPxl != Chroma)
+			if (source_surface.getPxl(getPxlI) != Chroma)
 			{
-				setPxl(setPxlI, BlitPxl);
+				setPxl(setPxlI, Fg);
 			}
 			setPxlI.x++;
 		}
